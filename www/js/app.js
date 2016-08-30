@@ -5,7 +5,7 @@ angular.module('appNameToSet', [
   'ionic',
   'ngCordova',
   
-  'starter.controllers',
+  'appNameToSet.appCtrl',
   'appNameToSet.homeCtrl',
 
   'appNameToSet.databaseSrv',
@@ -61,7 +61,7 @@ angular.module('appNameToSet', [
       url: '/app',
       abstract: true,
       templateUrl: 'templates/menu.html',
-      controller: 'AppCtrl'
+      controller: 'appCtrl'
     })
 
     .state('app.home', {

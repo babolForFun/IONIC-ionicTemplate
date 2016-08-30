@@ -24,7 +24,6 @@ angular.module('appNameToSet.homeCtrl', [])
                   databaseSrv.getBase64Img()
                     .then(
                       function (success) {
-                        console.log("SUCCESS LOAD 64" + success);
                         $scope.image64 = success;
                       },
                       function (error) {

@@ -1,0 +1,30 @@
+angular.module('appNameToSet.appCtrl', [])
+    .controller('appCtrl', function($scope,$ionicModal, $timeout) {
+
+        $scope.loginData = {};
+
+        // Create the login modal that we will use later
+        $ionicModal.fromTemplateUrl('templates/login.html', {
+            scope: $scope
+        })
+            .then(function(modal) {
+                $scope.modal = modal;
+            });
+
+        $scope.closeLogin = function() {
+            $scope.modal.hide();
+        };
+
+        $scope.login = function() {
+            $scope.modal.show();
+        };
+
+        $scope.doLogin = function() {
+            console.log('Doing login', $scope.loginData);
+
+            $timeout(function() {
+                $scope.closeLogin();
+            }, 1000);
+        };
+    
+    });

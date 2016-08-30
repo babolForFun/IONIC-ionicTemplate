@@ -1,0 +1,6 @@
+
+
+
+## REQUIREMENTS
+
+bower install ngCordova
