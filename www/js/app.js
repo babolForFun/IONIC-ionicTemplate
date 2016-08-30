@@ -7,6 +7,7 @@ angular.module('appNameToSet', [
   
   'appNameToSet.appCtrl',
   'appNameToSet.homeCtrl',
+  'appNameToSet.httpCtrl',
 
   'appNameToSet.databaseSrv',
   'appNameToSet.httpRequestServices',
@@ -72,7 +73,17 @@ angular.module('appNameToSet', [
           controller: 'homeCtrl'
         }
       }
+    })
+
+    .state('app.http', {
+      url: '/http',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/http.html',
+          controller: 'httpCtrl'
+        }
+      }
     });
 
-  $urlRouterProvider.otherwise('/app/home');
+  $urlRouterProvider.otherwise('/app/http');
 });
