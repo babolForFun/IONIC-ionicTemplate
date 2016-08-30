@@ -9,6 +9,7 @@ angular.module('appNameToSet', [
   'appNameToSet.homeCtrl',
 
   'appNameToSet.databaseSrv',
+  'appNameToSet.httpRequestServices',
   'appNameToSet.utilsSrv'
 ])
 
