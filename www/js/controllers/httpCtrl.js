@@ -1,5 +1,5 @@
 angular.module('appNameToSet.httpCtrl', [])
-    .controller('httpCtrl', function($scope,$ionicModal, $timeout) {
+    .controller('httpCtrl', function($scope, httpRequestServices) {
 
 
 
