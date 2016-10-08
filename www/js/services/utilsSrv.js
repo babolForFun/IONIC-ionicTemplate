@@ -1,5 +1,6 @@
 angular.module('appNameToSet.utilsSrv', [])
   .factory("utilsSrv", function($q, $cordovaFile) {
+
     return {
 
       base64ToUint8Array: function (base64) {
@@ -14,8 +15,6 @@ angular.module('appNameToSet.utilsSrv', [])
       displayErrorMessage:    function(type, functionName, error) {
         console.error("Type: " + type + "\nFunction: " + functionName + "\nError: " + JSON.stringify(error));
       }
-
-
 
     }
   });
