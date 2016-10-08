@@ -7,7 +7,7 @@ This is an Ionic template to:
 
 ## INSTRUCTION
 ```sh
-    bower install
+    ionic state reset
     ionic platform add [android] [ios] [windows]
     ionic run [android] [ios] [windows]
 ```
