@@ -15,16 +15,14 @@ angular.module('appNameToSet.httpRequestServices', [])
 
         $http(request)
           .then(
-            function(response){
-              deferred.resolve(response);
-            },
-            function (error) {
-              deferred.reject(error);
-            }
+              function(response) { deferred.resolve(response); }, 
+              function (error)   { deferred.reject(error); }
           );
+          
         return deferred.promise;
       },
 
+        
       // GET REQUEST
       getRequest: function(url,headers){
         var deferred = $q.defer();
@@ -35,15 +33,11 @@ angular.module('appNameToSet.httpRequestServices', [])
         };
         $http(request)
           .then(
-            function(response){
-              deferred.resolve(response);
-            },
-            function (error) {
-              deferred.reject(error);
-            }
+            function(response){ deferred.resolve(response); },
+            function (error)  { deferred.reject(error); }
           );
         return deferred.promise;
       }
 
     }
-  })
+  });

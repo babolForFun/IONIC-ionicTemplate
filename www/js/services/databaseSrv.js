@@ -23,12 +23,8 @@ angular.module('appNameToSet.databaseSrv', [])
               DatabaseParams.SYS_LAST_SYS_UPDATE    + " TEXT DEFAULT CURRENT_TIMESTAMP" +
             ")"
           ).then(
-            function(success) {
-              deferred.resolve();
-            },
-            function (error) {
-              deferred.reject();
-            }
+            function (success)  {deferred.resolve();},
+            function (error)    {deferred.reject();}
           ),
 
           $cordovaSQLite.execute(db,
@@ -39,20 +35,12 @@ angular.module('appNameToSet.databaseSrv', [])
               DatabaseParams.FILE_FILE_NAME + " TEXT" +
             ")"
           ).then(
-            function(success) {
-              deferred.resolve();
-            },
-            function (error) {
-              deferred.reject();
-            }
+            function (success)  {deferred.resolve();},
+            function (error)    {deferred.reject();}
           )
         ]).then(
-          function(success) {
-            deferred.resolve();
-          },
-          function (error) {
-            deferred.reject();
-          }
+            function (success)  {deferred.resolve();},
+            function (error)    {deferred.reject();}
         );
 
         return deferred.promise;
@@ -74,17 +62,15 @@ angular.module('appNameToSet.databaseSrv', [])
             "PersonalPhoto"
         ])
           .then(
-            function(success) {
-              defer.resolve();
-            },
-            function (error) {
-              defer.reject();
-              utilsServices.displayErrorMessage("Database","saveBlobFile",error);
-            });
+            function (success)  {defer.resolve();},
+            function (error)    {defer.reject();utilsServices.displayErrorMessage("Database","saveBlobFile",error);}
+          );
+
         return defer.promise;
       },
 
       getBase64Img: function () {
+
         var deferred = $q.defer();
         var query =
           "SELECT * " +
@@ -92,21 +78,12 @@ angular.module('appNameToSet.databaseSrv', [])
         
         $cordovaSQLite.execute(db, query, [])
           .then(
-            function(res) {
-              deferred.resolve(res.rows.item(0).data);
-            }, 
-            function (error) {
-              deferred.reject();
-              utilsServices.displayErrorMessage("Database","getBase64Img",error);
+            function (res)    {deferred.resolve(res.rows.item(0).data);},
+            function (error)  {deferred.reject(); utilsServices.displayErrorMessage("Database","getBase64Img",error);
             }
           );
         return deferred.promise;
 
       }
-
-
-
-
-
     }
   });

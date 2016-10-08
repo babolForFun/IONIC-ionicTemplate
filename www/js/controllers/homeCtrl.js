@@ -6,7 +6,7 @@ angular.module('appNameToSet.homeCtrl', [])
       var options = {
         quality: 80,
         destinationType: Camera.DestinationType.DATA_URL,
-        sourceType: Camera.PictureSourceType.CAMERA,
+        sourceType: Camera.PictureSourceType.CAMERA,        // Chenge source if you need to pick the photo from the gallery
         allowEdit: true,
         encodingType: Camera.EncodingType.PNG,
         targetWidth: 512,
@@ -23,24 +23,14 @@ angular.module('appNameToSet.homeCtrl', [])
                 function (success) {
                   databaseSrv.getBase64Img()
                     .then(
-                      function (success) {
-                        $scope.image64 = success;
-                      },
-                      function (error) {
-                        utilsSrv.displayErrorMessage("Promise","getBase64Img",error);
-                      }
+                      function (success) { $scope.image64 = success; },
+                      function (error)   { utilsSrv.displayErrorMessage("Promise","getBase64Img",error);}
                     )
                 },
-                function (error) {
-                  utilsSrv.displayErrorMessage("Promise","saveBlobFile",error);
-                })
+                function (error) { utilsSrv.displayErrorMessage("Promise","saveBlobFile",error); })
           },
-          function(error) {
-            utilsSrv.displayErrorMessage("Promise","getPicture",error);
-          }
+          function (error) { utilsSrv.displayErrorMessage("Promise","getPicture",error);}
         )
+      }
     }
-
-
-
-    });
+  );

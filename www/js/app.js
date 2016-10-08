@@ -15,13 +15,12 @@ angular.module('appNameToSet', [
 ])
 
 
-  .run(function($ionicPlatform, databaseSrv) {
+  .run(function($ionicPlatform, databaseSrv,utilsSrv) {
     $ionicPlatform.ready(function() {
 
       if (window.cordova && window.cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         cordova.plugins.Keyboard.disableScroll(true);
-
       }
       if (window.StatusBar) {
         StatusBar.styleDefault();
@@ -29,9 +28,8 @@ angular.module('appNameToSet', [
 
       databaseSrv.initDatabase()
         .then(
-          function (success) {
-            console.log("Success DB");
-          }
+          function (success) {},
+          function (error)   { utilsSrv.displayErrorMessage("Database","initDatabase",error); }
         )
 
     });
@@ -56,34 +54,35 @@ angular.module('appNameToSet', [
 
 
     .config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
-
-    .state('app', {
-      url: '/app',
-      abstract: true,
-      templateUrl: 'templates/menu.html',
-      controller: 'appCtrl'
-    })
-
-    .state('app.home', {
-      url: '/home',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/home.html',
-          controller: 'homeCtrl'
-        }
-      }
-    })
-
-    .state('app.http', {
-      url: '/http',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/http.html',
-          controller: 'httpCtrl'
-        }
-      }
-    });
-
-  $urlRouterProvider.otherwise('/app/http');
+      
+      $stateProvider
+    
+        .state('app', {
+          url: '/app',
+          abstract: true,
+          templateUrl: 'templates/menu.html',
+          controller: 'appCtrl'
+        })
+    
+        .state('app.home', {
+          url: '/home',
+          views: {
+            'menuContent': {
+              templateUrl: 'templates/home.html',
+              controller: 'homeCtrl'
+            }
+          }
+        })
+    
+        .state('app.http', {
+          url: '/http',
+          views: {
+            'menuContent': {
+              templateUrl: 'templates/http.html',
+              controller: 'httpCtrl'
+            }
+          }
+        });
+      
+      $urlRouterProvider.otherwise('/app/home');
 });
