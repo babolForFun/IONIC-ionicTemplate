@@ -1,4 +1,4 @@
-# IONIC - get photo from camera and make http requests. Click here to see the template for [Ionic v2](https://github.com/babolForFun/IONICv2-ionicTemplate)
+# IONIC - get photo from camera (or Gallery) and make http requests. Click here to see the template for [Ionic v2](https://github.com/babolForFun/IONICv2-ionicTemplate)
 
 This is an Ionic template to:
 
