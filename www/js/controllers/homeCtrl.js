@@ -6,7 +6,7 @@ angular.module('appNameToSet.homeCtrl', [])
       var options = {
         quality: 80,
         destinationType: Camera.DestinationType.DATA_URL,
-        sourceType: Camera.PictureSourceType.CAMERA,        // Chenge source if you need to pick the photo from the gallery
+        sourceType: Camera.PictureSourceType.CAMERA,        // Change source if you need to pick the photo from the gallery
         allowEdit: true,
         encodingType: Camera.EncodingType.PNG,
         targetWidth: 512,
